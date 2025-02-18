@@ -12,6 +12,15 @@
         Vue: "Vue.js"
     }
 
+    //6. Vue 樣板語法：事件處理
+    let handler = function(){
+        console.log("Click");
+    }
+
+    let mouseoverHandler=function(){
+    console.log("Mouse Over");
+    };
+
 </script>
 
 <template>
@@ -28,6 +37,7 @@
     <div :class="checked?'dark':'light'"> 操作標簽的屬性 </div>
 
     <main> 
+        <!-- 5. Vue 樣板語法：流程控制-->
         <div v-if="level===3">大神</div>
         <div v-else-if="level===2">資深</div>
         <div v-else-if="level===1">中階</div>
@@ -45,7 +55,13 @@
                 <li v-for="(value, key) in topicsObject" > {{key}}: {{value}}</li>
             </ul>
         </div>
+
+        <!-- 6. Vue 樣板語法：事件處理-->
+        <button @click.once="handler" @mouseover="mouseoverHandler">按鈕</button>
+        <a href="https://www.google.com/" v-on:click.prevent="handler"> Google </a>
     </main>
+
+    
 
    
 
